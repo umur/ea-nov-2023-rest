@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.assginments.lab2.dto.CourseDto;
 import com.assginments.lab2.dto.NewCourseDto;
-import com.assginments.lab2.service.CourseService;
+import com.assginments.lab2.service.ICourseService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/courses/")
 public class CourseController {
-    private final CourseService courseService;
+    private final ICourseService courseService;
 
     @GetMapping
     public List<CourseDto> getAll() {

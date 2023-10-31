@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.assginments.lab2.dto.CourseDto;
 import com.assginments.lab2.dto.NewStudentDto;
 import com.assginments.lab2.dto.StudentDto;
-import com.assginments.lab2.service.CourseService;
-import com.assginments.lab2.service.StudentService;
+import com.assginments.lab2.service.ICourseService;
+import com.assginments.lab2.service.IStudentService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -26,8 +26,8 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/students/")
 public class StudentController {
-    private final StudentService studentService;
-    private final CourseService courseService;
+    private final IStudentService studentService;
+    private final ICourseService courseService;
 
     @GetMapping
     public List<StudentDto> getAll() {
