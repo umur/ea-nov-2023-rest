@@ -6,6 +6,11 @@ In this lab, I createed a spring boot application from scratch.
 ## API Documentation
 ![Swagger](./swagger.png)
 
+Use Swagger
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
 ###  Requirements
 ---
 * Use n-tier software architecture model.
