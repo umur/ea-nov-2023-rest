@@ -57,4 +57,8 @@ public class CourseService {
 
     }
 
+    public boolean doesExist(int id) {
+        return courseRepo.doesExist(id);
+    }
+
 }

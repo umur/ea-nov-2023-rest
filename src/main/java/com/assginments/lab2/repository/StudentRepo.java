@@ -55,12 +55,8 @@ public class StudentRepo {
         student.getCoursesTaken().add(course);
     }
 
-    public boolean doesExist(Course course) {
-        return getStudent(course.getId()) != null;
-    }
-
-    public boolean doesExist(int courseId) {
-        return getStudent(courseId) != null;
+    public boolean doesExist(int studentId) {
+        return getStudent(studentId) != null;
     }
 
 }

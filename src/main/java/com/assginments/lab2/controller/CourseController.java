@@ -31,8 +31,12 @@ public class CourseController {
     }
 
     @GetMapping("/{id}")
-    public CourseDto getById(@PathVariable int id) {
-        return courseService.getCourse(id);
+    public ResponseEntity<CourseDto> getById(@PathVariable int id) {
+        if (!courseService.doesExist(id)) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        var result = courseService.getCourse(id);
+        return new ResponseEntity<CourseDto>(result, HttpStatus.OK);
     }
 
     @PostMapping
@@ -43,13 +47,20 @@ public class CourseController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> deleteById(@PathVariable int id) {
+        if (!courseService.doesExist(id)) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         courseService.removeCourse(id);
-
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     @PutMapping("/{id}")
-    public void update(@PathVariable int id, @RequestBody NewCourseDto course) {
+    public ResponseEntity<HttpStatus> update(@PathVariable int id, @RequestBody NewCourseDto course) {
+        if (!courseService.doesExist(id)) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         courseService.updateCourse(id, course);
+
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 }

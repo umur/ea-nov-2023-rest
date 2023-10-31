@@ -97,4 +97,8 @@ public class StudentService {
             studentRepo.addCourseToStudent(student, course);
         }
     }
+
+    public boolean doesExist(int id) {
+        return studentRepo.doesExist(id);
+    }
 }

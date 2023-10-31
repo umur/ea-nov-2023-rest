@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.assginments.lab2.dto.CourseDto;
 import com.assginments.lab2.dto.NewStudentDto;
 import com.assginments.lab2.dto.StudentDto;
+import com.assginments.lab2.service.CourseService;
 import com.assginments.lab2.service.StudentService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/students/")
 public class StudentController {
     private final StudentService studentService;
+    private final CourseService courseService;
 
     @GetMapping
     public List<StudentDto> getAll() {
@@ -38,13 +40,22 @@ public class StudentController {
     }
 
     @GetMapping("/{id}/courses")
-    public List<CourseDto> getAllByMajor(@PathVariable int id) {
-        return studentService.getAllStudentCourses(id);
+    public ResponseEntity<List<CourseDto>> getStudentsCourses(@PathVariable int id) {
+        if (!studentService.doesExist(id)) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        var result = studentService.getAllStudentCourses(id);
+
+        return new ResponseEntity<List<CourseDto>>(result, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public StudentDto getById(@PathVariable int id) {
-        return studentService.getStudent(id);
+    public ResponseEntity<StudentDto> getById(@PathVariable int id) {
+        if (!studentService.doesExist(id)) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        var result = studentService.getStudent(id);
+        return new ResponseEntity<StudentDto>(result, HttpStatus.OK);
     }
 
     @PostMapping
@@ -55,23 +66,29 @@ public class StudentController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> delete(@PathVariable int id) {
+        if (!studentService.doesExist(id)) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         studentService.removeStudent(id);
 
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public void update(@PathVariable int id, @RequestBody NewStudentDto student) {
+    public ResponseEntity<HttpStatus> update(@PathVariable int id, @RequestBody NewStudentDto student) {
+        if (!studentService.doesExist(id)) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         studentService.updateStudent(id, student);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    // @PostMapping("/{id}/courses")
-    // public void addCourseToStudent(@PathVariable int id, @RequestBody
-    // NewCourseDto course) {
-    // studentService.addCourseToStudent(id, course);
-    // }
     @PutMapping("/{id}/addCourse/{courseId}")
-    public void addCourse(@PathVariable int id, @PathVariable int courseId) {
+    public ResponseEntity<HttpStatus> addCourse(@PathVariable int id, @PathVariable int courseId) {
+        if (!studentService.doesExist(id) || !courseService.doesExist(courseId)) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         studentService.addCourseToStudent(id, courseId);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
