@@ -13,4 +13,9 @@ public class StudentController {
         this.studentService = studentService;
     }
 
+    /*
+    Implement CRUD operations for the domains.
+    Implement getStudentsByMajor(String major)
+    Returns all students majoring major.*/
+
 } // End of student controller

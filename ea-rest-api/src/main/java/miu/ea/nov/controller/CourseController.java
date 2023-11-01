@@ -13,4 +13,10 @@ public class CourseController {
         this.courseService = courseService;
     }
 
+
+    /*
+    Implement CRUD operations for the domains.
+    Implement getStudentsByMajor(String major)
+    Returns all courses of the student.*/
+
 } // End of course controller
