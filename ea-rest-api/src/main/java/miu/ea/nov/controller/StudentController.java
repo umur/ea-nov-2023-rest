@@ -12,4 +12,5 @@ public class StudentController {
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
-}
+
+} // End of student controller
