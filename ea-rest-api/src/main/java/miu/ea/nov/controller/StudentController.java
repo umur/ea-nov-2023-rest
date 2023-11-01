@@ -1,6 +1,6 @@
 package miu.ea.nov.controller;
 
-import miu.ea.nov.service.StudentServiceImpl;
+import miu.ea.nov.service.impl.StudentServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
