@@ -6,7 +6,7 @@ import miu.ea.nov.entity.Course;
 import java.util.List;
 
 @Data
-public class StudentDto {
+public class StudentFullDto {
     private Long id;
     private String firstName;
     private String lastName;
