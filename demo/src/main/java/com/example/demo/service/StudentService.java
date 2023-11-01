@@ -12,7 +12,7 @@ public interface StudentService {
     List<Studentdto> findAll();
     Studentdto findByStudentId(int id);
 
-    Studentdto update(Studentdto student);
+    void update(Studentdto student);
 
     void delete(int id);
 

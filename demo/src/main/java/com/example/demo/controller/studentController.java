@@ -5,10 +5,7 @@ import com.example.demo.dto.Studentdto;
 import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,28 +24,37 @@ public class studentController {
     //URL: abcd.com/students/ Method: Get
     @GetMapping
     List<Studentdto> findAll() {
+        return studentService.findAll();
 
     }
 
     //URL: abcd.com/students/:id  Method: Get
-    Studentdto findByStudentId(int id) {
+    @GetMapping("{id}")
+    Studentdto findByStudentId(@PathVariable int id) {
+        return studentService.findByStudentId(id);
+    }
+
+
+    @PutMapping
+    Studentdto update(Studentdto student) {
+         studentService.update(student);
+         return  student;
+    }
+
+    @DeleteMapping("/{id}")
+    void delete(@PathVariable int id) {
+        studentService.delete(id);
 
     }
 
-    Studentdto update(Student student) {
-
+    @GetMapping("/searchBy/{major}")
+    List<Studentdto> getStudentsByMajor(@PathVariable String major) {
+        return studentService.getStudentsByMajor(major);
     }
 
-    void delete(int id) {
-
-    }
-
-    List<Studentdto> getStudentsByMajor(String major) {
-
-    }
-
+    @GetMapping("/{id}/courses")
     List<Coursedto> getCoursesByStudentId(int id) {
-
+        return studentService.getCoursesByStudentId(id);
     }
 
 }

@@ -39,12 +39,13 @@ public class StudentServiceimp implements StudentService {
     }
 
     @Override
-    public Studentdto update(Studentdto student) {
-        return null;
+    public void update(Studentdto student) {
+        studentrepo.update(modelMapper.map(student,Student.class));
     }
 
     @Override
     public void delete(int id) {
+        studentrepo.delete(id);
 
     }
 
