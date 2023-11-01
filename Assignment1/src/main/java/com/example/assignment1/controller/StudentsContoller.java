@@ -43,12 +43,15 @@ public class StudentsContoller {
     }
 
     @GetMapping("/getStudent")
-    public List<StudentDto> getStudentByMajor(@RequestParam(required = false) String major,@RequestParam(required = false) int id){
-        System.out.println("id"+ id);
-        System.out.println("major"+ major);
-        if(major!=null){
-            return studentService.getStudentByMajor(major);
-        }
+    public List<StudentDto> getStudentByMajor(@RequestParam String major){
+
+        return studentService.getStudentByMajor(major);
+
+    }
+
+    @GetMapping("/getCoursesByStudentId")
+    public List<StudentDto> getStudentByMajor(@RequestParam int id){
+
         return studentService.getCoursesByStudentId(id);
     }
 
