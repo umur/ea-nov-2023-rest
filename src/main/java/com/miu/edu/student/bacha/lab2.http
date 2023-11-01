@@ -1,0 +1,11 @@
+POST http://localhost:8080/courses
+
+{
+  "name": "EA",
+  "code": "CS544"
+}
+
+###
+GET http://localhost:8080/courses
+
+
