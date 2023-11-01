@@ -19,12 +19,8 @@ public class StudentRepository {
         students.add(new Student(3L, "Tonny", "Kakooza", "toni@mail.com",
                 "Compro", 4.0, comproCourseList()));
         students.add(new Student(4L, "Dianah", "Arinda", "dianah@mail.com",
-                "MBA", 4.0, mbaCourseList()));
+                "MBA", 4.0, comproCourseList()));
         return students;
-    }
-
-    private List<Course> mbaCourseList() {
-        return CourseRepository.mbaCoursesList();
     }
 
     private List<Course> comproCourseList() {
