@@ -2,7 +2,6 @@ package com.example.lab2.Repository;
 
 
 import com.example.lab2.DTO.SimpleStudentDto;
-import com.example.lab2.Model.Course;
 import com.example.lab2.Model.Student;
 import org.springframework.stereotype.Repository;
 
