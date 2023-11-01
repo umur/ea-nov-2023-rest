@@ -1,0 +1,7 @@
+GET http://localhost:8080/courses
+
+###
+DELETE http://localhost:8080/courses/3
+
+###
+GET http://localhost:8080/students
