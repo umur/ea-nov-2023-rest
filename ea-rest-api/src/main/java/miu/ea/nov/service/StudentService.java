@@ -1,7 +1,7 @@
 package miu.ea.nov.service;
 
-import org.springframework.stereotype.Service;
+import miu.ea.nov.payload.StudentDto;
 
-@Service
 public interface StudentService {
+    StudentDto createStudent(StudentDto studentDto);
 }
