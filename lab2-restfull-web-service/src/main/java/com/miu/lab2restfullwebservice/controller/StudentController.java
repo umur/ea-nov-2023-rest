@@ -59,12 +59,14 @@ public class StudentController {
         return converter.generateResponse(success, errors);
     }
 
-    @GetMapping("?code")
+
+    // localhost:8080/students/searchByCode?code=123
+    @GetMapping("/searchByCode")
     ApiResponse<List<StudentDto>, String> getStudentsByMajor(@RequestParam String code) {
         return converter.generateResponse(studentService.getStudentsByMajor(code), "No Student is found with this course code : " + code);
     }
 
-    @GetMapping("/:studentId/courses")
+    @GetMapping("/{studentId}/courses")
     ApiResponse<List<CourseDto>, String> getCoursesByStudentId(@PathVariable Integer studentId) {
         return converter.generateResponse(studentService.getCoursesByStudentId(studentId), "No courses found for this student with id: " + studentId);
     }
