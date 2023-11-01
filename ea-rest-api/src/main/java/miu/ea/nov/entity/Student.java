@@ -3,12 +3,14 @@ package miu.ea.nov.entity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 
 @Getter
 @Setter
 @RequiredArgsConstructor
+@ToString
 public class Student {
     private Long id;
     private String firstName;
