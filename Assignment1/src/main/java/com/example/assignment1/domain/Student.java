@@ -5,9 +5,8 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
+//@AllArgsConstructor
 public class Student {
     private int id;
     private String firstName;
@@ -15,7 +14,6 @@ public class Student {
     private String email;
     private String major;
     private double gpa;
-    private String coursesTaken;;
+    private List<Course> coursesTaken=new ArrayList<>();
 
-    private List<Course> courses=new ArrayList<>();
 }

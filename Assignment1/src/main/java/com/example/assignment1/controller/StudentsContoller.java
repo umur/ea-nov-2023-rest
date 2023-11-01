@@ -3,28 +3,53 @@ package com.example.assignment1.controller;
 
 import com.example.assignment1.domain.Course;
 import com.example.assignment1.domain.Student;
+import com.example.assignment1.dto.StudentDto;
+import com.example.assignment1.service.StudentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/students")
 public class StudentsContoller {
 
+
+    private final StudentService studentService;
+
     @GetMapping
-    public String getStudents(){
-
-//        Student stu = new Student(1, "firstName", "Lastname", "email", "email@g.com", 3.25,"major 1",   );
-
-
-        return "stu";
+    public List<StudentDto> getAllStudents(){
+        return studentService.findAll();
     }
     @PostMapping
-    public Student addStudent(@RequestBody Student stu){
-        List<Course> courses = new ArrayList<>();
-        Student students = new Student(1, "firstName", "Lastname", "email", "email@g.com", 3.25,"major 1",courses  );
-        return students;
+    public void addStudent(@RequestBody StudentDto stu){
+        System.out.println("stu: "+stu);
+        studentService.addStudent(stu);
+    }
+
+    @PutMapping("/{id}")
+    public StudentDto updateStudent(@RequestBody StudentDto studentDto, @PathVariable int id){
+        return studentService.updateStudent(id, studentDto);
+
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteStudent(@PathVariable int id){
+            studentService.deleteStudent(id);
+
+    }
+
+    @GetMapping("/getStudent")
+    public List<StudentDto> getStudentByMajor(@RequestParam(required = false) String major,@RequestParam(required = false) int id){
+        System.out.println("id"+ id);
+        System.out.println("major"+ major);
+        if(major!=null){
+            return studentService.getStudentByMajor(major);
+        }
+        return studentService.getCoursesByStudentId(id);
     }
 
 }

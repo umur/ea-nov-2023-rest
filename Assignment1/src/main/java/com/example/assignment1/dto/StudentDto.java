@@ -1,6 +1,7 @@
 package com.example.assignment1.dto;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,7 +13,6 @@ public class StudentDto {
     private String lastName;
     private String email;
     private String major;
-    private String coursesTaken;
-
+    private double gpa;
 }
 
