@@ -12,14 +12,14 @@ public class StudentRepository {
     // Hold data in array lists.
     private static final List<Student> students = new ArrayList<Student>();
     public List<Student> listStudent(){
-        students.add(new Student(1L, "Geoffrey", "Opiyo",
-        "dunky@mail.com", "Compro", 4.0, comproCourseList()));
-        students.add(new Student(2L, "Hillary", "Arinda",
-                "hillary@mail.com", "Compro", 4.0, comproCourseList()));
-        students.add(new Student(3L, "Tonny", "Kakooza",
-                "dunky@mail.com", "Compro", 4.0, comproCourseList()));
-        students.add(new Student(4L, "Dianah", "Arinda",
-                "dunky@mail.com", "MBA", 4.0, mbaCourseList()));
+        students.add(new Student(1L, "Geoffrey", "Opiyo", "dunky@mail.com",
+                "Compro", 4.0, comproCourseList()));
+        students.add(new Student(2L, "Hillary", "Arinda", "hillary@mail.com",
+                "Compro", 4.0, comproCourseList()));
+        students.add(new Student(3L, "Tonny", "Kakooza", "toni@mail.com",
+                "Compro", 4.0, comproCourseList()));
+        students.add(new Student(4L, "Dianah", "Arinda", "dianah@mail.com",
+                "MBA", 4.0, mbaCourseList()));
         return students;
     }
 

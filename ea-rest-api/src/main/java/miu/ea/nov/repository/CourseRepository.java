@@ -19,10 +19,10 @@ public class CourseRepository {
         return comproCourses;
     }
     static List<Course> mbaCoursesList() {
-        comproCourses.add(new Course(1L, "AI", "CS589"));
-        comproCourses.add(new Course(2L, "SA", "CS590"));
-        comproCourses.add(new Course(3L, "EA", "CS544"));
-        comproCourses.add(new Course(4L, "Algo", "CS472"));
-        return comproCourses;
+        mbaCourses.add(new Course(1L, "SAP", "MB589"));
+        mbaCourses.add(new Course(2L, "HANA", "MB590"));
+        mbaCourses.add(new Course(3L, "Modern management", "MB544"));
+        mbaCourses.add(new Course(4L, "ERP", "MB472"));
+        return mbaCourses;
     }
 } // End of course repository class
