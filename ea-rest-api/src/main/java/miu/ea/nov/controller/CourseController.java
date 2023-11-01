@@ -1,15 +1,15 @@
 package miu.ea.nov.controller;
 
-import miu.ea.nov.service.CourseService;
+import miu.ea.nov.service.CourseServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController // Combination of @Controller and @ResponseBody annotations
 @RequestMapping("/api/courses") // Base URL for REST API
 public class CourseController {
-    private final CourseService courseService;
+    private final CourseServiceImpl courseService;
 
-    public CourseController(CourseService courseService) {
+    public CourseController(CourseServiceImpl courseService) {
         this.courseService = courseService;
     }
 
