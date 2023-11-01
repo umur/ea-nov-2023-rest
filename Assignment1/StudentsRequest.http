@@ -1,0 +1,41 @@
+### get all
+GET http://localhost:8080/students
+
+### create student
+
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "id":2,
+  "firstName":"Ranjan",
+  "lastName":"Paul",
+  "email":"ranjan2@gmail.com",
+  "major":"Software Developer",
+  "gpa": 10.00
+
+}
+
+###
+PUT http://localhost:8080/students/2
+Content-Type: application/json
+
+{
+"id":2,
+"firstName":"Ranjan",
+"lastName":"Paul",
+"email":"ranjan2@gmail.com",
+"major":"Software Developer",
+"gpa": 10.00
+
+}
+
+### delete
+
+DELETE http://localhost:8080/students/2
+
+###
+GET http://localhost:8080/students/getStudent?major=SA
+
+###
+GET http://localhost:8080/students/getStudent?id=1
