@@ -1,11 +1,14 @@
 package miu.ea.nov.payload;
 
-import lombok.Data;
+import lombok.*;
 import miu.ea.nov.entity.Course;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class StudentFullDto {
     private Long id;
     private String firstName;
