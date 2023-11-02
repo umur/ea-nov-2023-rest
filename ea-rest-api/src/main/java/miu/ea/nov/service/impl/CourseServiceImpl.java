@@ -1,7 +1,9 @@
 package miu.ea.nov.service.impl;
 
 import miu.ea.nov.entity.Course;
+import miu.ea.nov.entity.Student;
 import miu.ea.nov.payload.CourseDto;
+import miu.ea.nov.payload.StudentFullDto;
 import miu.ea.nov.repository.CourseRepository;
 import miu.ea.nov.service.CourseService;
 import org.springframework.stereotype.Service;
@@ -18,18 +20,21 @@ public class CourseServiceImpl implements CourseService {
         this.courseRepository = courseRepository;
     }
 
-    @Override
-    public List<CourseDto> findAll() {
-        List<Course> courses = new ArrayList<Course>();
-        List<CourseDto> result = new ArrayList<CourseDto>();
-        courses.stream()
-                .forEach(c -> {
-                    result.add(new CourseDto().toDto(c));
-                        });
-        return result;
-    }
 
-//    public void create(CourseDto dto) {
-//        var entity : Course = dto.toEntity();
-//    }
+    @Override
+    public CourseDto createCourse(CourseDto courseDto) {
+        // Convert DTO to Entity
+        Course course = new Course();
+        course.setId(courseDto.getId());
+        course.setName(courseDto.getName());
+        course.setCode(courseDto.getCode());
+        Course newCourse = courseRepository.save(course);
+
+        // Convert Entity to DTO
+        CourseDto courseResponse = new CourseDto();
+        courseResponse.setId(newCourse.getId());
+        courseResponse.setName(newCourse.getName());
+        courseResponse.setCode(newCourse.getCode());
+        return courseResponse;
+    }
 }

@@ -1,11 +1,11 @@
 package miu.ea.nov.controller;
 
 import miu.ea.nov.payload.CourseDto;
+import miu.ea.nov.payload.StudentFullDto;
 import miu.ea.nov.service.impl.CourseServiceImpl;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,14 +24,9 @@ public class CourseController {
     Implement getStudentsByMajor(String major)
     Returns all courses of the student.*/
 
-    @GetMapping("/find")
-    public List<CourseDto> findAllCourses() {
-        return courseService.findAll();
-    }
-
-    @PostMapping("/create")
-    public void addCourse(CourseDto courseDto) {
-
+    @PostMapping
+    public ResponseEntity<CourseDto> createCourse(@RequestBody CourseDto courseDto){
+        return new ResponseEntity<>(courseService.createCourse(courseDto), HttpStatus.CREATED);
     }
 
 } // End of course controller

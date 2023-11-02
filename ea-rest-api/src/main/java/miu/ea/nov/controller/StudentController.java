@@ -1,6 +1,11 @@
 package miu.ea.nov.controller;
 
+import miu.ea.nov.payload.StudentFullDto;
 import miu.ea.nov.service.impl.StudentServiceImpl;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,5 +22,9 @@ public class StudentController {
     Implement CRUD operations for the domains.
     Implement getStudentsByMajor(String major)
     Returns all students majoring major.*/
+    @PostMapping
+    public ResponseEntity<StudentFullDto> createStudent(@RequestBody StudentFullDto studentFullDto){
+        return new ResponseEntity<>(studentService.createStudent(studentFullDto), HttpStatus.CREATED);
+    }
 
 } // End of student controller
