@@ -20,7 +20,7 @@ public class CourseController {
 
     /*
     Implement CRUD operations for the domains.
-    Implement getStudentsByMajor(String major)
+    Implement getCoursesByStudentId(int )
     Returns all courses of the student.*/
 
     @PostMapping("/students/{studentId}/courses")
@@ -31,7 +31,7 @@ public class CourseController {
 
     // Implement getCoursesByStudentId(int studentId)
     @GetMapping("/students/{studentId}/courses")
-    public List<CourseDto> getCoursesByStudentId(@PathVariable(name="studentId") int studentId){
+    public List<CourseDto> getCoursesByStudentId(@PathVariable(name="studentId") long studentId){
         return courseService.getCoursesByStudentId(studentId);
     }
 
