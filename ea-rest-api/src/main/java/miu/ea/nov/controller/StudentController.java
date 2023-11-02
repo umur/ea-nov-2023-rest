@@ -46,7 +46,7 @@ public class StudentController {
     }
 
     // Update student by {id} REST API
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<StudentMinimalDto> updateStudent(@RequestBody StudentMinimalDto studentMinimalDto,
                                                            @PathVariable(name="id") long id) {
 
@@ -57,7 +57,7 @@ public class StudentController {
     }
 
     // delete Student by {id} REST API
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteStudent(@PathVariable(name = "id") long id){
 
         studentService.deleteStudentById(id);
