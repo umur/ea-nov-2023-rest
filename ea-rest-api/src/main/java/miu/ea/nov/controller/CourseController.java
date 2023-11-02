@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController // Combination of @Controller and @ResponseBody annotations
-@RequestMapping("/api/courses") // Base URL for REST API
+@RequestMapping("/api/") // Base URL for REST API
 public class CourseController {
     private final CourseServiceImpl courseService;
 
@@ -24,9 +24,10 @@ public class CourseController {
     Implement getStudentsByMajor(String major)
     Returns all courses of the student.*/
 
-    @PostMapping
-    public ResponseEntity<CourseDto> createCourse(@RequestBody CourseDto courseDto){
-        return new ResponseEntity<>(courseService.createCourse(courseDto), HttpStatus.CREATED);
+    @PostMapping("/students/{sudentId}/courses")
+    public ResponseEntity<CourseDto> createCourse(@PathVariable(name = "studentId") long studentId,
+                                                  @RequestBody CourseDto courseDto){
+        return new ResponseEntity<>(courseService.createCourse(studentId, courseDto), HttpStatus.CREATED);
     }
 
 } // End of course controller

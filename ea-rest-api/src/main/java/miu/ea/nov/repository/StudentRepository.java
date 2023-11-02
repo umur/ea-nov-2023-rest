@@ -11,20 +11,23 @@ import java.util.List;
 public class StudentRepository {
     // Hold data in array lists.
     private static final List<Student> students = new ArrayList<Student>();
-
+    static Student student1 = new Student(1L, "Geoffrey", "Opiyo", "dunky@mail.com",
+            "Compro", 4.0, comproCourseList());
+    static Student student2 = new Student(2L, "Hillary", "Arinda", "hillary@mail.com",
+            "Compro", 4.0, comproCourseList());
+    static Student student3 = new Student(3L, "Tonny", "Kakooza", "toni@mail.com",
+            "Compro", 4.0, comproCourseList());
+    static Student student4 = new Student(4L, "Dianah", "Arinda", "dianah@mail.com",
+            "MBA", 4.0, comproCourseList());
     public List<Student> listStudent(){
-        students.add(new Student(1L, "Geoffrey", "Opiyo", "dunky@mail.com",
-                "Compro", 4.0, comproCourseList()));
-        students.add(new Student(2L, "Hillary", "Arinda", "hillary@mail.com",
-                "Compro", 4.0, comproCourseList()));
-        students.add(new Student(3L, "Tonny", "Kakooza", "toni@mail.com",
-                "Compro", 4.0, comproCourseList()));
-        students.add(new Student(4L, "Dianah", "Arinda", "dianah@mail.com",
-                "MBA", 4.0, comproCourseList()));
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+        students.add(student4);
         return students;
     }
 
-    private List<Course> comproCourseList() {
+    private static List<Course> comproCourseList() {
         return CourseRepository.comproCoursesList();
     }
 
