@@ -3,7 +3,9 @@ package miu.ea.nov.service;
 import miu.ea.nov.payload.StudentFullDto;
 import miu.ea.nov.payload.StudentMinimalDto;
 
+import java.util.List;
+
 public interface StudentService {
     StudentFullDto createStudent(StudentFullDto studentDto);
-    StudentMinimalDto getStudent(StudentMinimalDto studentMinimalDto);
+    public List<StudentMinimalDto> findAllStudents();
 }

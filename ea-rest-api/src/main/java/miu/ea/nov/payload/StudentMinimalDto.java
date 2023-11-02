@@ -13,6 +13,7 @@ public class StudentMinimalDto {
     private Long id;
     private String firstName;
     private String lastName;
+    private String email;
     private String major;
-    private List<Course> courseTaken;
+    //private List<Course> courseTaken;
 }

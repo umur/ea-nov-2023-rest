@@ -33,4 +33,8 @@ public class StudentRepository {
         return student;
     }
 
+    public List<Student> findAllStudent(){
+        return listStudent();
+    }
+
 }
