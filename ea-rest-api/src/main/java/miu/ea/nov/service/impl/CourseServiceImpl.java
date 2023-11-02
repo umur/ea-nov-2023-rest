@@ -7,17 +7,20 @@ import miu.ea.nov.repository.CourseRepository;
 import miu.ea.nov.repository.StudentRepository;
 import miu.ea.nov.service.CourseService;
 import org.springframework.stereotype.Service;
+import org.modelmapper.ModelMapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class CourseServiceImpl implements CourseService {
-
+    private final ModelMapper mapper;
     private final CourseRepository courseRepository;
     private final StudentRepository studentRepository;
 
-    public CourseServiceImpl(CourseRepository courseRepository, StudentRepository studentRepository) {
+    public CourseServiceImpl(ModelMapper mapper, CourseRepository courseRepository,
+                             StudentRepository studentRepository) {
+        this.mapper = mapper;
         this.courseRepository = courseRepository;
         this.studentRepository = studentRepository;
     }
@@ -48,20 +51,20 @@ public class CourseServiceImpl implements CourseService {
 
     // Convert Entity to DTO
     private CourseDto mapToDto(Course course){
-        CourseDto courseDto = new CourseDto();
-        courseDto.setId(course.getId());
-        courseDto.setName(course.getName());
-        courseDto.setCode(course.getCode());
-        return courseDto;
+        //  CourseDto courseDto = new CourseDto();
+//        courseDto.setId(course.getId());
+//        courseDto.setName(course.getName());
+//        courseDto.setCode(course.getCode());
+        return mapper.map(course, CourseDto.class);
     }
 
     // Convert DTO to Entity
     private Course mapToEntity(CourseDto courseDto){
-        Course course = new Course();
-        course.setId(courseDto.getId());
-        course.setName(courseDto.getName());
-        course.setCode(courseDto.getCode());
-        return course;
+        // Course course = new Course();
+//        course.setId(courseDto.getId());
+//        course.setName(courseDto.getName());
+//        course.setCode(courseDto.getCode());
+        return mapper.map(courseDto, Course.class);
     }
 
 

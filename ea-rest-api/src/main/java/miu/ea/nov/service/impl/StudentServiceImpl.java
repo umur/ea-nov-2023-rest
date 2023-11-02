@@ -6,6 +6,7 @@ import miu.ea.nov.payload.StudentFullDto;
 import miu.ea.nov.payload.StudentMinimalDto;
 import miu.ea.nov.repository.StudentRepository;
 import miu.ea.nov.service.StudentService;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,9 +14,11 @@ import java.util.stream.Collectors;
 
 @Service
 public class StudentServiceImpl implements StudentService {
+    private final ModelMapper mapper;
     private final StudentRepository studentRepository;
 
-    public StudentServiceImpl(StudentRepository studentRepository) {
+    public StudentServiceImpl(ModelMapper mapper, StudentRepository studentRepository) {
+        this.mapper = mapper;
         this.studentRepository = studentRepository;
     }
 
