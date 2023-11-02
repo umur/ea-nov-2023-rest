@@ -37,4 +37,25 @@ public class StudentRepository {
         return listStudent();
     }
 
+    public Student findById(long id) {
+        List<Student> list = listStudent();
+        for (Student student : list) {
+            if (student.getId() == id) {
+                return student;
+            }
+        }
+        return null;
+    }
+
+    public List<Student> findByMajor(String major) {
+        List<Student> list = listStudent();
+        List<Student> newList = new ArrayList<Student>();
+        for (Student student : list) {
+            if (student.getMajor().equals(major)) {
+                newList.add(student);
+                return newList;
+            }
+        }
+        return null;
+    }
 }

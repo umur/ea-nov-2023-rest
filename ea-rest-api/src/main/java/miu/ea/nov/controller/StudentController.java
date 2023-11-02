@@ -33,4 +33,15 @@ public class StudentController {
         return studentService.findAllStudents();
     }
 
+    // Get student by {Id} REST API
+    @GetMapping("/{id}")
+    public ResponseEntity<StudentMinimalDto> getStudentById(@PathVariable(name = "id") long id){
+        return ResponseEntity.ok(studentService.getStudentById(id));
+    }
+
+    // Get student by {major} REST API
+    @GetMapping("/{major}")
+    public ResponseEntity<StudentMinimalDto> getStudentByMajor(@PathVariable(name = "major") String major){
+        return ResponseEntity.ok(studentService.getStudentsByMajor(major));
+    }
 } // End of student controller

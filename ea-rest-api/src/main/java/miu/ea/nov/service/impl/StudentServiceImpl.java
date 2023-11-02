@@ -52,4 +52,16 @@ public class StudentServiceImpl implements StudentService {
         student.setMajor(studentMinimalDto.getMajor());
         return student;
     }
+
+    @Override
+    public StudentMinimalDto getStudentById(long id) {
+        Student student = studentRepository.findById(id);
+        return mapToDto(student);
+    }
+
+    @Override
+    public StudentMinimalDto getStudentsByMajor(String major) {
+        List<Student> students = studentRepository.findByMajor(major);
+        return (StudentMinimalDto) students.stream().map(s -> mapToDto(s)).collect(Collectors.toList());
+    }
 } // End of Student Service Implementation class.
