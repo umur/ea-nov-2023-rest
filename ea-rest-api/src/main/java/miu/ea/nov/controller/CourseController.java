@@ -24,7 +24,7 @@ public class CourseController {
     Implement getStudentsByMajor(String major)
     Returns all courses of the student.*/
 
-    @PostMapping("/students/{sudentId}/courses")
+    @PostMapping("/students/{studentId}/courses")
     public ResponseEntity<CourseDto> createCourse(@PathVariable(name = "studentId") long studentId,
                                                   @RequestBody CourseDto courseDto){
         return new ResponseEntity<>(courseService.createCourse(studentId, courseDto), HttpStatus.CREATED);
