@@ -7,7 +7,6 @@ import miu.ea.nov.entity.Student;
 @Getter
 @Setter
 @AllArgsConstructor
-@RequiredArgsConstructor
 @NoArgsConstructor
 public class CourseDto {
     private Long id;
