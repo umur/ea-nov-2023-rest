@@ -2,7 +2,6 @@ package miu.ea.nov.service.impl;
 
 
 import miu.ea.nov.entity.Student;
-import miu.ea.nov.exception.ResourceNotFoundException;
 import miu.ea.nov.payload.StudentFullDto;
 import miu.ea.nov.payload.StudentMinimalDto;
 import miu.ea.nov.repository.StudentRepository;
