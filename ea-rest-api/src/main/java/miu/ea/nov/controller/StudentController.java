@@ -40,8 +40,8 @@ public class StudentController {
     }
 
     // Get student by {major} REST API
-    @GetMapping("/{major}")
-    public ResponseEntity<StudentMinimalDto> getStudentByMajor(@PathVariable(name = "major") String major){
-        return ResponseEntity.ok(studentService.getStudentsByMajor(major));
+    @GetMapping("/major/{major}")
+    public List<StudentMinimalDto> getStudentsByMajor(@PathVariable(name = "major") String major){
+        return studentService.getStudentsByMajor(major);
     }
 } // End of student controller

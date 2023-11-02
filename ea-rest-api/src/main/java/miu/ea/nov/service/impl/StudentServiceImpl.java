@@ -60,8 +60,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public StudentMinimalDto getStudentsByMajor(String major) {
+    public List<StudentMinimalDto> getStudentsByMajor(String major) {
         List<Student> students = studentRepository.findByMajor(major);
-        return (StudentMinimalDto) students.stream().map(s -> mapToDto(s)).collect(Collectors.toList());
+        return students.stream().map(s -> mapToDto(s)).collect(Collectors.toList());
     }
 } // End of Student Service Implementation class.

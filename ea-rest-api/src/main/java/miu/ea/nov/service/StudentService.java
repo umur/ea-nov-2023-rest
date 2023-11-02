@@ -10,5 +10,5 @@ public interface StudentService {
     public List<StudentMinimalDto> findAllStudents();
 
     public StudentMinimalDto getStudentById(long id);
-    public StudentMinimalDto getStudentsByMajor(String major);
+    public List<StudentMinimalDto> getStudentsByMajor(String major);
 }
