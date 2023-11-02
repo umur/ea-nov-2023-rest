@@ -8,6 +8,9 @@ import miu.ea.nov.repository.StudentRepository;
 import miu.ea.nov.service.CourseService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CourseServiceImpl implements CourseService {
 
@@ -33,6 +36,14 @@ public class CourseServiceImpl implements CourseService {
        // Save course to the repository
         Course newCourse = courseRepository.save(course);
         return mapToDto(newCourse);
+    }
+
+    @Override
+    public List<CourseDto> getCoursesByStudentId(long studentId) {
+        // Retrieve courses by student Id
+        List<Course> courses = courseRepository.findByStudentId(studentId);
+        // Using Java  Stream to mapToDto
+        return courses.stream().map(c -> mapToDto(c)).collect(Collectors.toList());
     }
 
     // Convert Entity to DTO

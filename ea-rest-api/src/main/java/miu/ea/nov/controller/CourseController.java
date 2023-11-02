@@ -1,7 +1,6 @@
 package miu.ea.nov.controller;
 
 import miu.ea.nov.payload.CourseDto;
-import miu.ea.nov.payload.StudentFullDto;
 import miu.ea.nov.service.impl.CourseServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,5 +28,8 @@ public class CourseController {
                                                   @RequestBody CourseDto courseDto){
         return new ResponseEntity<>(courseService.createCourse(studentId, courseDto), HttpStatus.CREATED);
     }
+
+    // Implement getCoursesByStudentId(int studentId)
+
 
 } // End of course controller

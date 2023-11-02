@@ -24,4 +24,14 @@ public class CourseRepository {
         return course;
     }
 
+    public List<Course> findByStudentId(long studentId) {
+
+        for (int i = 0; i < courses.size(); i++) {
+           if(courses.get(i).getStudent().getId().equals(studentId)){
+               return courses;
+           }
+        }
+        return null;
+    }
+
 } // End of course repository class
