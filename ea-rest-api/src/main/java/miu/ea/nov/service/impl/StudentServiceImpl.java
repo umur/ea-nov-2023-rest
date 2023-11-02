@@ -36,24 +36,26 @@ public class StudentServiceImpl implements StudentService {
 
     //Converting Entity into DTO
     private StudentMinimalDto mapToDto(Student student){
-        StudentMinimalDto studentMinimalDto = new StudentMinimalDto();
-        studentMinimalDto.setId(student.getId());
-        studentMinimalDto.setFirstName(student.getFirstName());
-        studentMinimalDto.setLastName(student.getLastName());
-        studentMinimalDto.setEmail(student.getEmail());
-        studentMinimalDto.setMajor(student.getMajor());
-        return studentMinimalDto;
+        return mapper.map(student, StudentMinimalDto.class);
+//        StudentMinimalDto studentMinimalDto = new StudentMinimalDto();
+//        studentMinimalDto.setId(student.getId());
+//        studentMinimalDto.setFirstName(student.getFirstName());
+//        studentMinimalDto.setLastName(student.getLastName());
+//        studentMinimalDto.setEmail(student.getEmail());
+//        studentMinimalDto.setMajor(student.getMajor());
+//        return studentMinimalDto;
     }
 
     // Convert DTO to Entity
     private Student mapToEntity(StudentMinimalDto studentMinimalDto){
-        Student student = new Student();
-        student.setId(studentMinimalDto.getId());
-        student.setFirstName(studentMinimalDto.getFirstName());
-        student.setLastName(studentMinimalDto.getLastName());
-        student.setEmail(studentMinimalDto.getEmail());
-        student.setMajor(studentMinimalDto.getMajor());
-        return student;
+        return mapper.map(studentMinimalDto, Student.class);
+//        Student student = new Student();
+//        student.setId(studentMinimalDto.getId());
+//        student.setFirstName(studentMinimalDto.getFirstName());
+//        student.setLastName(studentMinimalDto.getLastName());
+//        student.setEmail(studentMinimalDto.getEmail());
+//        student.setMajor(studentMinimalDto.getMajor());
+//        return student;
     }
 
     @Override
