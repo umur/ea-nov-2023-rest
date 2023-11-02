@@ -11,4 +11,5 @@ public interface StudentService {
 
     public StudentMinimalDto getStudentById(long id);
     public List<StudentMinimalDto> getStudentsByMajor(String major);
+    public StudentMinimalDto updateStudent(StudentMinimalDto studentMinimalDto, long id);
 }

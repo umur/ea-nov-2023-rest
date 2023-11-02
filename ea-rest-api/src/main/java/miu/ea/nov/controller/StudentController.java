@@ -44,4 +44,16 @@ public class StudentController {
     public List<StudentMinimalDto> getStudentsByMajor(@PathVariable(name = "major") String major){
         return studentService.getStudentsByMajor(major);
     }
+
+    // Update student by {id} REST API
+    @PutMapping("/{id}")
+    public ResponseEntity<StudentMinimalDto> updateStudent(@RequestBody StudentMinimalDto studentMinimalDto,
+                                                           @PathVariable(name="id") long id) {
+
+        StudentMinimalDto studentResponse = studentService.updateStudent(studentMinimalDto, id);
+
+        return new ResponseEntity<>(studentResponse, HttpStatus.OK);
+
+    }
+
 } // End of student controller

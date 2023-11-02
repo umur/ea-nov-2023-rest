@@ -2,6 +2,7 @@ package miu.ea.nov.service.impl;
 
 
 import miu.ea.nov.entity.Student;
+import miu.ea.nov.exception.ResourceNotFoundException;
 import miu.ea.nov.payload.StudentFullDto;
 import miu.ea.nov.payload.StudentMinimalDto;
 import miu.ea.nov.repository.StudentRepository;
@@ -64,4 +65,21 @@ public class StudentServiceImpl implements StudentService {
         List<Student> students = studentRepository.findByMajor(major);
         return students.stream().map(s -> mapToDto(s)).collect(Collectors.toList());
     }
+
+    @Override
+    public StudentMinimalDto updateStudent(StudentMinimalDto studentMinimalDto, long id) {
+        // get post by id from the database
+        Student student = studentRepository.findById(id);
+
+        student.setId(studentMinimalDto.getId());
+        student.setFirstName(studentMinimalDto.getFirstName());
+        student.setLastName(studentMinimalDto.getLastName());
+        student.setEmail(studentMinimalDto.getEmail());
+        student.setMajor(studentMinimalDto.getMajor());
+
+        Student updatedStudent = StudentRepository.save(student);
+        return mapToDto(updatedStudent);
+    }
+
+
 } // End of Student Service Implementation class.

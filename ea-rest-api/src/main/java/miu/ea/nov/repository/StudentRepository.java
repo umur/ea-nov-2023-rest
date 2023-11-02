@@ -28,7 +28,7 @@ public class StudentRepository {
         return CourseRepository.comproCoursesList();
     }
 
-    public Student save(Student student){
+    public static Student save(Student student){
         newStudents.add(student);
         return student;
     }
