@@ -11,7 +11,7 @@ import java.util.List;
 public class StudentRepository {
     // Hold data in array lists.
     private static final List<Student> students = new ArrayList<Student>();
-    private static final List<Student> newStudents = new ArrayList<Student>();
+
     public List<Student> listStudent(){
         students.add(new Student(1L, "Geoffrey", "Opiyo", "dunky@mail.com",
                 "Compro", 4.0, comproCourseList()));
@@ -28,7 +28,8 @@ public class StudentRepository {
         return CourseRepository.comproCoursesList();
     }
 
-    public static Student save(Student student){
+    public Student save(Student student){
+        List<Student> newStudents = new ArrayList<Student>();
         newStudents.add(student);
         return student;
     }
@@ -58,4 +59,15 @@ public class StudentRepository {
         }
         return null;
     }
-}
+
+    public void delete(long id){
+        List<Student> list = listStudent();
+        for (int i = 0; i < list.size(); i++ ) {
+            if (list.get(i).getId() == id) {
+                list.remove(i);
+            }
+        }
+
+    }
+
+} // End of Student repository class

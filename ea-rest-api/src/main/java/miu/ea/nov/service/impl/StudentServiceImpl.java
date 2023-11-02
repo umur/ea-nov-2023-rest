@@ -68,7 +68,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public StudentMinimalDto updateStudent(StudentMinimalDto studentMinimalDto, long id) {
-        // get post by id from the database
+        // get Student by id from the repository
         Student student = studentRepository.findById(id);
 
         student.setId(studentMinimalDto.getId());
@@ -77,9 +77,15 @@ public class StudentServiceImpl implements StudentService {
         student.setEmail(studentMinimalDto.getEmail());
         student.setMajor(studentMinimalDto.getMajor());
 
-        Student updatedStudent = StudentRepository.save(student);
+        Student updatedStudent = studentRepository.save(student);
         return mapToDto(updatedStudent);
     }
 
+    @Override
+    public void deleteStudentById(long id) {
+        // get Student by id from the repository
+        Student student = studentRepository.findById(id);
+        studentRepository.delete(student.getId());
+    }
 
 } // End of Student Service Implementation class.
