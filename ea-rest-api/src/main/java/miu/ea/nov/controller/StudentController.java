@@ -22,7 +22,7 @@ public class StudentController {
     Implement CRUD operations for the domains.
     Implement getStudentsByMajor(String major)
     Returns all students majoring major.*/
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<StudentFullDto> createStudent(@RequestBody StudentFullDto studentFullDto){
         return new ResponseEntity<>(studentService.createStudent(studentFullDto), HttpStatus.CREATED);
     }
