@@ -29,7 +29,7 @@ public class StudentController {
 
     // Get all students REST API
     @GetMapping
-    public List<StudentMinimalDto> findAllStudents(){
+    public List<StudentMinimalDto> getAllStudents(){
         return studentService.findAllStudents();
     }
 

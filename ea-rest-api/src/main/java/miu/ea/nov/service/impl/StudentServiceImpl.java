@@ -27,7 +27,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<StudentMinimalDto> findAllStudents() {
-
         List<Student> students = studentRepository.findAllStudent();
         return students.stream().map(s -> mapToDto(s)).collect(Collectors.toList());
     }
