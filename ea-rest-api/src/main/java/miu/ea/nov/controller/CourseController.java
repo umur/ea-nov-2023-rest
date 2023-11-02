@@ -20,7 +20,7 @@ public class CourseController {
 
     /*
     Implement CRUD operations for the domains.
-    Implement getCoursesByStudentId(int )
+    Implement getCoursesByStudentId(long id)
     Returns all courses of the student.*/
 
     @PostMapping("/students/{studentId}/courses")
