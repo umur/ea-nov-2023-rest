@@ -28,7 +28,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<StudentMinimalDto> findAllStudents() {
         List<Student> students = studentRepository.findAllStudent();
-        return students.stream().map(s -> mapToDto(s)).collect(Collectors.toList());
+        return students.stream().map(this::mapToDto).collect(Collectors.toList());
     }
 
     //Converting Entity into DTO
@@ -62,7 +62,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<StudentMinimalDto> getStudentsByMajor(String major) {
         List<Student> students = studentRepository.findByMajor(major);
-        return students.stream().map(s -> mapToDto(s)).collect(Collectors.toList());
+        return students.stream().map(this::mapToDto).collect(Collectors.toList());
     }
 
     @Override

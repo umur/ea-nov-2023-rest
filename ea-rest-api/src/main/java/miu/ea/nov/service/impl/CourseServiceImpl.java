@@ -42,8 +42,8 @@ public class CourseServiceImpl implements CourseService {
     public List<CourseDto> getCoursesByStudentId(long studentId) {
         // Retrieve courses by student Id
         List<Course> courses = courseRepository.findByStudentId(studentId);
-        // Using Java  Stream to mapToDto
-        return courses.stream().map(c -> mapToDto(c)).collect(Collectors.toList());
+        // Using Java  Stream to convert list of courses entities to Dto
+        return courses.stream().map(this::mapToDto).collect(Collectors.toList());
     }
 
     // Convert Entity to DTO

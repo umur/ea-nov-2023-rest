@@ -30,6 +30,9 @@ public class CourseController {
     }
 
     // Implement getCoursesByStudentId(int studentId)
-
+    @GetMapping("/students/{studentId}/courses")
+    public List<CourseDto> getCoursesByStudentId(@PathVariable(name="studentId") int studentId){
+        return courseService.getCoursesByStudentId(studentId);
+    }
 
 } // End of course controller
