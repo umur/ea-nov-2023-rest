@@ -16,5 +16,5 @@ public class StudentMinimalDto {
     private String lastName;
     private String email;
     private String major;
-    private Set<CourseDto> courseTaken;
+    private List<CourseDto> courseTaken;
 }

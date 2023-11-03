@@ -16,5 +16,5 @@ public class StudentFullDto {
     private String email;
     private String major;
     private double gpa;
-    private List<Course> courseTaken;
+    private List<CourseDto> courseTaken;
 }
