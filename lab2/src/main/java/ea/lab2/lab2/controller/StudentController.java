@@ -3,7 +3,7 @@ package ea.lab2.lab2.controller;
 import ea.lab2.lab2.dto.FullCourseDto;
 import ea.lab2.lab2.dto.FullStudentDto;
 import ea.lab2.lab2.entity.Student;
-import ea.lab2.lab2.service.StudentsServices;
+import ea.lab2.lab2.service.impl.StudentServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/students")
 public class StudentController {
 
-    private final StudentsServices studentsServices;
+    private final StudentServiceImpl studentsServices;
 
 
     @GetMapping
